@@ -4,14 +4,15 @@ import { Menu, X, Terminal, Sun, Moon } from "lucide-react";
 import { useTheme } from "./ThemeProvider";
 
 const navItems = [
-{ label: "About", href: "#about" },
-{ label: "Skills", href: "#skills" },
-{ label: "Experience", href: "#experience" },
-{ label: "Projects", href: "#projects" },
-{ label: "Certifications", href: "#certifications" },
-{ label: "Education", href: "#education" },
-{ label: "CV", href: "#cv" },
-{ label: "Contact", href: "#contact" }];
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
+  { label: "Services", href: "#services" },
+  { label: "Certifications", href: "#certifications" },
+  { label: "Education", href: "#education" },
+  { label: "CV", href: "#cv" },
+  { label: "Contact", href: "#contact" }];
 
 
 const Navbar = () => {
@@ -30,8 +31,7 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? "glass border-b border-border/50" : "bg-transparent"}`
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass border-b border-border/50" : "bg-transparent"}`
       }>
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
@@ -44,10 +44,10 @@ const Navbar = () => {
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-6">
           {navItems.map((item) =>
-          <a
-            key={item.href}
-            href={item.href}
-            className="text-sm font-mono text-muted-foreground hover:text-primary transition-colors duration-200">
+            <a
+              key={item.href}
+              href={item.href}
+              className="text-sm font-mono text-muted-foreground hover:text-primary transition-colors duration-200">
 
               {item.label}
             </a>
@@ -82,23 +82,23 @@ const Navbar = () => {
       {/* Mobile menu */}
       <AnimatePresence>
         {isOpen &&
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden">
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden">
 
             <div className="px-4 py-4 flex flex-col gap-3">
               {navItems.map((item) =>
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={() => setIsOpen(false)}
-              className="text-sm font-mono text-muted-foreground hover:text-primary transition-colors py-2">
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="text-sm font-mono text-muted-foreground hover:text-primary transition-colors py-2">
 
                   $ cd {item.label.toLowerCase()}
                 </a>
-            )}
+              )}
             </div>
           </motion.div>
         }
